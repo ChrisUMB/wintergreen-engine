@@ -1,7 +1,7 @@
 package dev.wintergreen.engine.util
 
-import me.chrisumb.openmath.vector.Vector2f
-import me.chrisumb.openmath.vector.Vector3f
+import dev.wintergreen.openmath.vector.Vector2f
+import dev.wintergreen.openmath.vector.Vector3f
 
 data class Vertex(
     val position: Vector3f,

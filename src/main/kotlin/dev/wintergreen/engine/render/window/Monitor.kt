@@ -1,6 +1,6 @@
 package dev.wintergreen.engine.render.window
 
-import me.chrisumb.openmath.vector.Vector2f
+import dev.wintergreen.openmath.vector.Vector2f
 import dev.wintergreen.engine.EngineException
 import dev.wintergreen.engine.render.RenderEngine
 import org.lwjgl.glfw.GLFW.*
@@ -112,9 +112,7 @@ class Monitor private constructor(val id: Long) {
             val indexOfNative = supportedRes.indexOf(currentRes)
             for (i in indexOfNative downTo 0) {
                 val res = supportedRes[i]
-                if (res.aspectRatio == currentRes.aspectRatio
-                    && res < currentRes
-                ) {
+                if (res.aspectRatio == currentRes.aspectRatio && res.width <= currentRes.width / 1.5) {
                     target = res
                     break
                 }

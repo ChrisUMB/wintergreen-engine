@@ -1,6 +1,6 @@
 package dev.wintergreen.engine.render.window
 
-import me.chrisumb.openmath.vector.Vector2f
+import dev.wintergreen.openmath.vector.Vector2f
 import dev.wintergreen.engine.EngineException
 import dev.wintergreen.engine.core.Scene
 import dev.wintergreen.engine.core.WintergreenEngine
@@ -104,10 +104,8 @@ class Window private constructor(
     internal fun create() {
         mode.run(this)
         val monitorId = if (mode == Mode.FULLSCREEN) monitor.id else 0
-        var shareWindowId = values.firstOrNull()?.id ?: 0
-        if (shareWindowId == -1L) {
-            shareWindowId = 0L
-        }
+        val shareWindowId = values.firstOrNull()?.takeIf(Window::created)?.id ?: 0
+
         setupHints()
         id = glfwCreateWindow(resolution.width, resolution.height, title, monitorId, shareWindowId)
         doBind()
@@ -117,6 +115,8 @@ class Window private constructor(
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3)
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3)
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE)
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE)
+        glfwWindowHint(GLFW_SAMPLES, 16) //TODO: Configurable?
     }
 
     internal fun setup() {
@@ -130,13 +130,14 @@ class Window private constructor(
         glfwSetCursorPosCallback(id, WindowCallbacks::setCursorPositionCallback)
         glfwSetScrollCallback(id, WindowCallbacks::setScrollCallback)
         glfwSetCharCallback(id, WindowCallbacks::setCharCallback)
+        glfwShowWindow(id)
     }
 
     fun recenter() {
         position = (monitor.currentResolution.vector / 2f) - (resolution.vector / 2f)
     }
 
-    internal fun swapBuffers() {
+    private fun swapBuffers() {
         glfwSwapBuffers(id)
     }
 

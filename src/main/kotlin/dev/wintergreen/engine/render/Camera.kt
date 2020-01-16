@@ -1,8 +1,8 @@
 package dev.wintergreen.engine.render
 
-import me.chrisumb.openmath.matrix.Matrix4f
-import me.chrisumb.openmath.quaternion.Quaternionf
-import me.chrisumb.openmath.vector.Vector3f
+import dev.wintergreen.openmath.matrix.Matrix4f
+import dev.wintergreen.openmath.quaternion.Quaternionf
+import dev.wintergreen.openmath.vector.Vector3f
 
 class Camera(
     //TODO: Potentially abstract in a way where you could do something like cameras.find { it.projection is Perspective }

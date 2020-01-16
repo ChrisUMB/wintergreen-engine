@@ -1,9 +1,9 @@
 package dev.wintergreen.engine.render.shader
 
-import me.chrisumb.openmath.matrix.Matrix4f
-import me.chrisumb.openmath.vector.Vector2f
-import me.chrisumb.openmath.vector.Vector3f
-import me.chrisumb.openmath.vector.Vector4f
+import dev.wintergreen.openmath.matrix.Matrix4f
+import dev.wintergreen.openmath.vector.Vector2f
+import dev.wintergreen.openmath.vector.Vector3f
+import dev.wintergreen.openmath.vector.Vector4f
 import dev.wintergreen.engine.render.Color
 import dev.wintergreen.engine.util.glCall
 import org.lwjgl.opengl.GL20C.*

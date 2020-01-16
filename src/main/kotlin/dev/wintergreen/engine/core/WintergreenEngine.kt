@@ -52,15 +52,14 @@ object WintergreenEngine : Engine("game-engine") {
                 loop.count++
                 loop.rate = loop.count / secondTimer.count().toFloat()
 
-
-
                 if (!secondTimer.isReady) {
                     continue
                 }
 
                 loop.count -= loop.rate
 
-                println("Loop [${loop.id}] Rate: ${loop.rate}")
+                println("%-10s @ %-7.2f/s".format(loop.id, loop.rate))
+//                println("${loop.id} @ ${loop.rate}/s")
 
             }
 

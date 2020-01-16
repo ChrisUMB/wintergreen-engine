@@ -1,7 +1,7 @@
 package dev.wintergreen.engine.render
 
-import me.chrisumb.openmath.vector.Vector3f
-import me.chrisumb.openmath.vector.Vector4f
+import dev.wintergreen.openmath.vector.Vector3f
+import dev.wintergreen.openmath.vector.Vector4f
 
 
 data class Color(var red: Float, var green: Float, var blue: Float, var alpha: Float = 1f) {

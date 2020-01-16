@@ -3,7 +3,7 @@ package dev.wintergreen.engine.input
 import me.chrisumb.grids.input.Button
 import me.chrisumb.grids.input.ButtonState
 import me.chrisumb.grids.input.MouseButton
-import me.chrisumb.openmath.vector.Vector2f
+import dev.wintergreen.openmath.vector.Vector2f
 import dev.wintergreen.engine.render.window.Window
 import org.lwjgl.glfw.GLFW
 import java.util.*

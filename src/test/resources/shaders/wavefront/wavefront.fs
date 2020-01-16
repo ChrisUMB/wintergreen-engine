@@ -10,5 +10,5 @@ in vec3 vPosition;
 in mat3 vTBN;
 
 void main() {
-    fColor = vec4(1f, 1f, 1f, 1f);
+    fColor = vec4(vNormal * 0.5 + 0.5, 1f);
 }

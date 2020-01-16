@@ -1,8 +1,8 @@
 package dev.wintergreen.engine.asset
 
-import me.chrisumb.openmath.extension.times
-import me.chrisumb.openmath.vector.Vector2f
-import me.chrisumb.openmath.vector.Vector3f
+import dev.wintergreen.openmath.extension.times
+import dev.wintergreen.openmath.vector.Vector2f
+import dev.wintergreen.openmath.vector.Vector3f
 import dev.wintergreen.engine.render.gl.GLBuffer
 import dev.wintergreen.engine.util.Vertex
 import org.lwjgl.BufferUtils

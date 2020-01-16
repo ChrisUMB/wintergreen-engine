@@ -13,14 +13,15 @@ project.ext.lwjglNatives = "natives-windows"
 
 repositories {
     mavenCentral()
-    mavenLocal()
+    maven { url 'https://sparse.blue/maven/' }
+//    mavenLocal()
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jetbrains.kotlin:kotlin-reflect"
     implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
-    implementation "me.chrisumb:open-math:+"
+    implementation "dev.wintergreen:open-math:+"
     implementation "org.lwjgl:lwjgl"
     implementation "org.lwjgl:lwjgl-glfw"
     implementation "org.lwjgl:lwjgl-opengl"

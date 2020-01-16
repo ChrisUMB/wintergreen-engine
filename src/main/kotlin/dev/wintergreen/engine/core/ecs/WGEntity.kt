@@ -20,12 +20,12 @@ class WGEntity(val scene: Scene, vararg components: WGComponent) {
         updateSystems()
     }
 
-    fun addComponent(component: WGComponent) {
+    fun add(component: WGComponent) {
         _components[component::class] = component
         updateSystems()
     }
 
-    fun removeComponent(type: ComponentType) {
+    fun remove(type: ComponentType) {
         _components.remove(type)
         updateSystems()
     }
@@ -35,23 +35,23 @@ class WGEntity(val scene: Scene, vararg components: WGComponent) {
     }
 
     fun <V, T : ValueComponent<V>> getValue(type: ValueComponentType<V>): V? {
-        return getOptionalComponent<T>(type)?.value
+        return getOptional<T>(type)?.value
     }
 
-    fun <T : WGComponent> getOptionalComponent(type: ComponentType): T? {
+    fun <T : WGComponent> getOptional(type: ComponentType): T? {
         return _components[type] as? T
     }
 
-    inline fun <reified T : WGComponent> hasComponent(): Boolean {
-        return getOptionalComponent<T>() != null
+    inline fun <reified T : WGComponent> has(): Boolean {
+        return getOptional<T>() != null
     }
 
-    inline fun <reified T : WGComponent> getOptionalComponent(): T? {
-        return getOptionalComponent(T::class)
+    inline fun <reified T : WGComponent> getOptional(): T? {
+        return getOptional(T::class)
     }
 
-    inline fun <reified T : WGComponent> getComponent(): T {
-        return getOptionalComponent(T::class)
+    inline fun <reified T : WGComponent> get(): T {
+        return getOptional(T::class)
             ?: throw NoSuchElementException("Entity ($id) missing component ${T::class.simpleName}")
     }
 

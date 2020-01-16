@@ -1,6 +1,6 @@
 package dev.wintergreen.engine.render.window
 
-import me.chrisumb.openmath.vector.Vector2f
+import dev.wintergreen.openmath.vector.Vector2f
 
 data class Resolution(
     val width: Int,
