@@ -1,0 +1,3 @@
+fun main() {
+    TestInitializer.start()
+}
